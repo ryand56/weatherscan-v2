@@ -1,0 +1,16 @@
+{
+  "name": "weatherscan-v2",
+  "version": "1.0.0",
+  "description": "Weatherscan V2 is a simulated recreation of Weatherscan by The Weather Channel in HTML/CSS/JS, by mist weather media",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^5.1.0",
+    "http-proxy-middleware": "^3.0.5"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Mist Weather Media"
+}
