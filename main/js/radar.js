@@ -198,6 +198,9 @@ function initializeRadars() {
     radarEchoes.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (4)', 'visibility', 'none');
     radarEchoes.setLayoutProperty('country-boundaries', 'visibility', 'none');
   });
+  radarEchoes.on('error', (e) =>{
+    return;
+  })
 
   satEchoes = new mapboxgl.Map({
     container: 'sat-echoes', // container id
@@ -230,6 +233,9 @@ function initializeRadars() {
     satEchoes.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (4)', 'visibility', 'none');
     satEchoes.setLayoutProperty('country-boundaries', 'visibility', 'none');
   });
+  satEchoes.on('error', (e) =>{
+    return;
+  })
 
   satAmenities = new mapboxgl.Map({
     container: 'sat-amenities', // container id

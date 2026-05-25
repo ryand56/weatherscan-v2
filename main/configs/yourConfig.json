@@ -16,7 +16,7 @@
             "providerType":"provider",
             "providerImage":"mistdc",
             "adImages":[],
-            "version":"1.0.0",
+            "version":"1.0.1",
             "backgroundImage":"wxscan_default_bg_new",
             "condensedCrawlFont": {
               "adCrawl": false,
@@ -202,6 +202,20 @@
           ]
         },
         "international": {
+          "mapOrder": [
+            "europe",
+            "canada",
+            "caribbean",
+            "southamerica",
+            "britain",
+            "mexico",
+            "africa",
+            "india",
+            "eastasia",
+            "oceania",
+            "australia"
+          ],
+          "maxMaps": 2,
           "map": {
             "canada": [
               {"locationName":"Dawson","lat":"64.0639","lon":"-139.4333"},

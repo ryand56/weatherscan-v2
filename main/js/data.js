@@ -940,7 +940,7 @@ function getExtraCore(locNum) {
 }
 function getSpanishData() {
   function getCurrent() {
-    var url = "https://api.weather.com/v3/wx/observations/current?icaoCode=" + systemSettings.mainCity.obsIcaoCode + "&units=e&language=es-US&format=json&apiKey=" + api_key
+    var url = "https://api.weather.com/v3/wx/observations/current?" + locationDataHeaders.mainData.currentConditions.spanish + "&units=e&language=es-US&format=json&apiKey=" + api_key
     $.getJSON(url, function(data) {
       weatherData.currentConditions.spanish.locationName = systemSettings.mainCity.obsName
       weatherData.currentConditions.spanish.noReport = false
@@ -962,7 +962,7 @@ function getSpanishData() {
   }
   getCurrent()
   function getDayPart() {
-    var url = "https://api.weather.com/v3/wx/forecast/hourly/2day?geocode=" + systemSettings.mainCity.lat + "," + systemSettings.mainCity.lon + "&format=json&units=e&language=es-US&apiKey=" + api_key
+    var url = "https://api.weather.com/v3/wx/forecast/hourly/2day?" + locationDataHeaders.mainData.dayPart.spanish + "&format=json&units=e&language=es-US&apiKey=" + api_key
     var currenthr = dateFns.getHours(new Date());
     $.getJSON(url, function(data) {
       var targetHours
@@ -1931,6 +1931,7 @@ function getIntlData() {
     }
     url += "&language=en-US&units=e&format=json&apiKey=" + api_key;
     weatherData.internationalForecast.cities = []
+    weatherData.internationalForecast.dayName = ["null","null","null"];
     $.getJSON(url, function(data){
       data.forEach((ajaxedLoc, i) => {
         var ii = 1;
@@ -2418,6 +2419,10 @@ function dataJS() {
     var today = new Date();
     var date = today.toString().replace('01', '1').replace('02', '2').replace('03', '3').replace('04', '4').replace('05', '5').replace('06', '6').replace('07', '7').replace('08', '8').replace('09', '9').slice(4,10).trimRight() 
     var time = today.toLocaleTimeString('en-US', { hour: 'numeric', hour12: true, minute: 'numeric', second: 'numeric'}).replace(/ /g,' ').toLowerCase().replaceAll(" ", "")
+    if(systemSettings.mainCity.timeZone != undefined){
+      date = today.toLocaleDateString('en-US', {month: 'short', 'day': 'numeric', timeZone: systemSettings.mainCity.timeZone});
+      time = today.toLocaleTimeString('en-US', { hour: 'numeric', hour12: true, minute: 'numeric', second: 'numeric', timeZone: systemSettings.mainCity.timeZone}).replace(/ /g,' ').toLowerCase().replaceAll(" ", "")
+    }
     var spacer = ((time.length > 7) ? " " : "  ")
     $('#date-time').text(date + "\n" + time);
   }, 1000);

@@ -122,7 +122,7 @@ var travelRegional = [
     { locationName: "New Orleans", lat: 29.951, lon: -90.072, topPos: 2550, leftPos: 4100 },
     { locationName: "Mobile", lat: 30.695, lon: -88.043, topPos: 2530, leftPos: 4400 },
     { locationName: "Tallahassee", lat: 30.438, lon: -84.281, topPos: 2500, leftPos: 4700 },
-    { locationName: "Jacksonville", lat: 30.332, lon: -81.656, topPos: 2537, leftPos: 5080 },
+    { locationName: "Jacksonville", lat: 30.332, lon: -81.656, topPos: 2537, leftPos: 5080, type: ["atlantic"] },
     { locationName: "Orlando", lat: 28.538, lon: -81.379, topPos: 2730, leftPos: 5075 },
     { locationName: "Tampa", lat: 27.951, lon: -82.457, topPos: 2750, leftPos: 4850 },
     { locationName: "Fort Myers", lat: 26.640, lon: -81.872, topPos: 2955, leftPos: 4960 },
@@ -243,6 +243,7 @@ function grabMainCity() {
             if (systemSettings.dataMaps.auto) {
                 centerDataMaps(data.location.adminDistrictCode[0]);
             }
+            systemSettings.mainCity.timeZone = data.location.ianaTimeZone[0];
             systemSettings.mainCity.radar.lat = data.location.latitude[0];
             systemSettings.mainCity.radar.lon = data.location.longitude[0];
             if (systemSettings.mainCity.radar.auto) {
@@ -472,7 +473,7 @@ function grabExtraCities(lat, lon) {
     $.getJSON(`https://api.weather.com/v3/location/near?geocode=${lat},${lon}&product=observation&format=json&apiKey=${systemSettings.apiKeys.api_key}`, function (data) {
         //console.log(data);
         for (let i = 0; i < data.location.stationId.length; i++) {
-            createNewExtraCity(data.location.stationId[i], data.location.distanceMi[i]);
+            createNewExtraCity(data.location.latitude[i], data.location.longitude[i], data.location.distanceMi[i]);
             if (i == data.location.stationId.length - 1) {
                 //console.log(newExtraCities);
                 setTimeout(addExtraCities, 250);
@@ -480,9 +481,9 @@ function grabExtraCities(lat, lon) {
         }
     })
 }
-function createNewExtraCity(icao, dist) {
+function createNewExtraCity(lat, lon, dist) {
     var extraCityObj, dontPush = false;
-    $.getJSON(`https://api.weather.com/v3/location/point?icaoCode=${icao}&language=en-US&format=json&apiKey=${systemSettings.apiKeys.api_key}`, function (data) {
+    $.getJSON(`https://api.weather.com/v3/location/point?geocode=${lat},${lon}&language=en-US&format=json&apiKey=${systemSettings.apiKeys.api_key}`, function (data) {
         extraCityObj = {
             locationName: data.location.displayName.replaceAll("Charter Township", "").replaceAll("Township", ""),
             bulletinName: data.location.displayName.replaceAll("Charter Township", "").replaceAll("Township", "") + " Area",
@@ -502,6 +503,9 @@ function createNewExtraCity(icao, dist) {
             },
             distance: dist
         }
+        if(systemSettings.mainCity.radar.auto == false){
+            extraCityObj.radar = systemSettings.mainCity.radar;
+        }
         if (data.location.displayName == systemSettings.mainCity.locationName)return;/*{
             if(data.location.locale["locale4"] != null){
                 if(data.location.locale["locale4"].endsWith("Naval Air Station")) return;
@@ -512,7 +516,7 @@ function createNewExtraCity(icao, dist) {
                 return;
             }
         }*/
-        if (icao == systemSettings.mainCity.locationID) return;
+        if (extraCityObj.locationID == systemSettings.mainCity.locationID) return;
         for (let i = 0; i < newExtraCities.length; i++) {
             if (extraCityObj.locationName == newExtraCities[i].locationName) {
                 dontPush = true;
@@ -548,7 +552,7 @@ function addExtraCities() {
     }
     if(systemSettings.extraCity.cities.length == 0){
         for(let i = 0; i < systemSettings.packageSettings.length; i++){
-            systemSettings.packageSettings[i] = systemSettings.packageSettings[i].replaceAll("extralocal", Math.random() > 0.5 ? "minicoreone" : "minicoretwo");
+            systemSettings.packageSettings[i] = systemSettings.packageSettings[i].replaceAll("extralocal", Math.random() > 0.5 ? "minicoreone" : "minicoretwo").replaceAll("golf", Math.random() > 0.5 ? "minicoreone" : "minicoretwo");
         }
     }
 }
@@ -669,9 +673,10 @@ function getTravelMapLimits(type) {
     if (type[0] == "pacific" && type[1] == "north") {
         return [120, -340, 310, -1050];
     }
-    // if(type[0] == "atlantic" && type[1] == null){
-    //     return [225, -225, 1085, -285]
-    // }
+    if(type[0] == "atlantic" && !type[1]){
+        return [225, -225, 1085, -285]
+    }
+    return [225, -225, 685, -685];
 }
 
 function initTravelMap() {
@@ -789,11 +794,15 @@ function initLocDataHeaders() {
     }
     //nearbycities
     for (var i = 0; i < systemSettings.nearbyCities.cities.length; i++) {
-        if (systemSettings.nearbyCities.cities[i].locationID.includes(":")) {
-            //get from wxcode
-            dataHeaderNearbyCities(i)
-        } else {
-            //get from icao
+        try {
+            if (systemSettings.nearbyCities.cities[i].locationID.includes(":")) {
+                //get from wxcode
+                dataHeaderNearbyCities(i)
+            } else {
+                //get from icao
+                locationDataHeaders.mainData.nearbyCities[i] = "icaoCode=" + systemSettings.nearbyCities.cities[i].locationID
+            }
+        } catch (error) {
             locationDataHeaders.mainData.nearbyCities[i] = "icaoCode=" + systemSettings.nearbyCities.cities[i].locationID
         }
     }
@@ -1152,7 +1161,7 @@ function dataHeaderMainCity() {
         systemSettings.mainCity.lon = data.location.longitude
         //cc
         locationDataHeaders.mainData.currentConditions.english.mainLoc = "geocode=" + systemSettings.mainCity.lat + "," + systemSettings.mainCity.lon
-        locationDataHeaders.mainData.currentConditions.spanish.mainLoc = "geocode=" + systemSettings.mainCity.lat + "," + systemSettings.mainCity.lon
+        locationDataHeaders.mainData.currentConditions.spanish = "geocode=" + systemSettings.mainCity.lat + "," + systemSettings.mainCity.lon
         //lf
         locationDataHeaders.mainData.localForecast.mainLoc = "geocode=" + systemSettings.mainCity.lat + "," + systemSettings.mainCity.lon
         //dp
