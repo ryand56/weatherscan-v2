@@ -231,7 +231,7 @@ var mainquery = window.location.search == "" ? undefined : window.location.searc
 function grabMainCity() {
     //mainquery = window.location.search == "" ? undefined : window.location.search.replaceAll("?", "").replaceAll("%20", " ");
     if (mainquery != undefined && mainquery != "nationalForecast") {
-        $.getJSON("https://api.weather.com/v3/location/search?query=" + mainquery + "&language=en-US&format=json&apiKey=" + systemSettings.apiKeys.api_key, function (data) {
+        $.getJSON("https://api.weather.com/v3/location/search?query=" + mainquery + "&language=en-CA&format=json&apiKey=" + systemSettings.apiKeys.api_key, function (data) {
             //maincity
             systemSettings.mainCity.locationName = data.location.displayName[0].replaceAll("Charter Township", "").replaceAll("Township", "");
             systemSettings.mainCity.obsName = data.location.displayName[0];
@@ -386,7 +386,7 @@ function grabMainCity() {
             if (systemSettings.LBar.ccTicker.autoFind == true) {
                 grabTickerCities(data.lat, data.lon);
             }
-            $.getJSON(`https://api.weather.com/v3/location/point?geocode=${data.lat},${data.lon}&language=en-US&format=json&apiKey=${systemSettings.apiKeys.api_key}`, function (iddata) {
+            $.getJSON(`https://api.weather.com/v3/location/point?geocode=${data.lat},${data.lon}&language=en-CA&format=json&apiKey=${systemSettings.apiKeys.api_key}`, function (iddata) {
                 //console.log(iddata);
                 systemSettings.mainCity.locationID = iddata.location.locId;
                 systemSettings.LBar.locations.cities[0].locationID = iddata.location.locId;
@@ -432,7 +432,7 @@ function grabNearbyCities(lat, lon) {
 }
 function createNewNearbyCity(icao) {
     var locName, dontPush;
-    $.getJSON(`https://api.weather.com/v3/location/point?icaoCode=${icao}&language=en-US&format=json&apiKey=${systemSettings.apiKeys.api_key}`, function (data) {
+    $.getJSON(`https://api.weather.com/v3/location/point?icaoCode=${icao}&language=en-CA&format=json&apiKey=${systemSettings.apiKeys.api_key}`, function (data) {
         locName = data.location.displayName.replace(" Charter Township", "").replace(" Township", "");
         /*if(data.location.locale["locale4"] != null){
             if(!data.location.locale["locale4"].endsWith("Naval Air Station")){locName = data.location.locale["locale4"]}
@@ -483,7 +483,7 @@ function grabExtraCities(lat, lon) {
 }
 function createNewExtraCity(lat, lon, dist) {
     var extraCityObj, dontPush = false;
-    $.getJSON(`https://api.weather.com/v3/location/point?geocode=${lat},${lon}&language=en-US&format=json&apiKey=${systemSettings.apiKeys.api_key}`, function (data) {
+    $.getJSON(`https://api.weather.com/v3/location/point?geocode=${lat},${lon}&language=en-CA&format=json&apiKey=${systemSettings.apiKeys.api_key}`, function (data) {
         extraCityObj = {
             locationName: data.location.displayName.replaceAll("Charter Township", "").replaceAll("Township", ""),
             bulletinName: data.location.displayName.replaceAll("Charter Township", "").replaceAll("Township", "") + " Area",
@@ -579,7 +579,7 @@ function grabTickerCities(lat,lon){
 function createNewCity(lat, lon, obj){
     //console.log(lat, lon);
     var newCity;
-    $.getJSON(`https://api.weather.com/v3/location/point?geocode=${lat},${lon}&language=en-US&format=json&apiKey=${systemSettings.apiKeys.api_key}`, function(data){
+    $.getJSON(`https://api.weather.com/v3/location/point?geocode=${lat},${lon}&language=en-CA&format=json&apiKey=${systemSettings.apiKeys.api_key}`, function(data){
         newCity = {
             locationName: data.location.displayName.replace(" Charter Township", "").replace(" Township", ""),
             lat: data.location.latitude,
@@ -970,7 +970,7 @@ function initLocDataHeaders() {
 }
 //lbar data
 function dataHeaderLBar(locNum) {
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.LBar.locations.cities[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.LBar.locations.cities[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.LBar.locations.cities[locNum].lat = data.location.latitude
         systemSettings.LBar.locations.cities[locNum].lon = data.location.longitude
         locationDataHeaders.LBarData.current[locNum] = "geocode=" + systemSettings.LBar.locations.cities[locNum].lat + "," + systemSettings.LBar.locations.cities[locNum].lon
@@ -979,7 +979,7 @@ function dataHeaderLBar(locNum) {
 }
 //ccticker data
 function dataHeaderCCTTravel(locNum) {
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.LBar.ccTicker.travelCities[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.LBar.ccTicker.travelCities[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.LBar.ccTicker.travelCities[locNum].lat = data.location.latitude
         systemSettings.LBar.ccTicker.travelCities[locNum].lon = data.location.longitude
         locationDataHeaders.ccTickerData.travelCities.current[locNum] = "geocode=" + systemSettings.LBar.ccTicker.travelCities[locNum].lat + "," + systemSettings.LBar.ccTicker.travelCities[locNum].lon
@@ -987,7 +987,7 @@ function dataHeaderCCTTravel(locNum) {
     })
 }
 function dataHeaderCCTCities(locNum) {
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.LBar.ccTicker.cities[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.LBar.ccTicker.cities[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.LBar.ccTicker.cities[locNum].lat = data.location.latitude
         systemSettings.LBar.ccTicker.cities[locNum].lon = data.location.longitude
         locationDataHeaders.ccTickerData.cities.current[locNum] = "geocode=" + systemSettings.LBar.ccTicker.cities[locNum].lat + "," + systemSettings.LBar.ccTicker.cities[locNum].lon
@@ -996,7 +996,7 @@ function dataHeaderCCTCities(locNum) {
 }
 //maindata
 function dataHeaderBeachAlmanac() {
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.beach.tides.almanac.locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.beach.tides.almanac.locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.beach.tides.almanac.lat = data.location.latitude
         systemSettings.beach.tides.almanac.lon = data.location.longitude
         locationDataHeaders.mainData.tidesAlmanac = "geocode=" + systemSettings.beach.tides.almanac.lat + "," + systemSettings.beach.tides.almanac.lon
@@ -1007,7 +1007,7 @@ function dataHeaderGarden() {
         locationDataHeaders.mainData.gardeningForecast = "geocode=" + systemSettings.garden.lat + "," + systemSettings.garden.lon;
         return;
     }
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.garden.locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.garden.locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.garden.lat = data.location.latitude
         systemSettings.garden.lon = data.location.longitude
         locationDataHeaders.mainData.gardeningForecast = "geocode=" + systemSettings.garden.lat + "," + systemSettings.garden.lon
@@ -1018,7 +1018,7 @@ function dataHeaderCourseForecast(locNum) {
         locationDataHeaders.mainData.courseForecast[locNum] = "geocode=" + systemSettings.golf.courses[locNum].lat + "," + systemSettings.golf.courses[locNum].lon
         return;
     }
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.golf.courses[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.golf.courses[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.golf.courses[locNum].lat = data.location.latitude
         systemSettings.golf.courses[locNum].lon = data.location.longitude
         locationDataHeaders.mainData.courseForecast[locNum] = "geocode=" + systemSettings.golf.courses[locNum].lat + "," + systemSettings.golf.courses[locNum].lon
@@ -1029,7 +1029,7 @@ function dataHeaderTeeTime() {
         locationDataHeaders.mainData.teeTime = "geocode=" + systemSettings.golf.teeTime.lat + "," + systemSettings.golf.teeTime.lon;
         return;
     }
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.golf.teeTime.locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.golf.teeTime.locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.golf.teeTime.lat = data.location.latitude
         systemSettings.golf.teeTime.lon = data.location.longitude
         locationDataHeaders.mainData.teeTime = "geocode=" + systemSettings.golf.teeTime.lat + "," + systemSettings.golf.teeTime.lon
@@ -1038,90 +1038,90 @@ function dataHeaderTeeTime() {
 }
 function dataHeaderIntlFcst(locNum) {
     if(!systemSettings.international.forecast[locNum].locationID) return;
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.forecast[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.forecast[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.international.forecast[locNum].lat = data.location.latitude
         systemSettings.international.forecast[locNum].lon = data.location.longitude
     })
 }
 function dataHeaderIntlMapAU(locNum) {
     if(!systemSettings.international.map.australia[locNum].locationID) return;
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.australia[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.australia[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.international.map.australia[locNum].lat = data.location.latitude
         systemSettings.international.map.australia[locNum].lon = data.location.longitude
     })
 }
 function dataHeaderIntlMapOC(locNum) {
     if(!systemSettings.international.map.oceania[locNum].locationID) return;
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.oceania[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.oceania[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.international.map.oceania[locNum].lat = data.location.latitude
         systemSettings.international.map.oceania[locNum].lon = data.location.longitude
     })
 }
 function dataHeaderIntlMapEA(locNum) {
     if(!systemSettings.international.map.eastasia[locNum].locationID) return;
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.eastasia[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.eastasia[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.international.map.eastasia[locNum].lat = data.location.latitude
         systemSettings.international.map.eastasia[locNum].lon = data.location.longitude
     })
 }
 function dataHeaderIntlMapIN(locNum) {
     if(!systemSettings.international.map.india[locNum].locationID) return;
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.india[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.india[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.international.map.india[locNum].lat = data.location.latitude
         systemSettings.international.map.india[locNum].lon = data.location.longitude
     })
 }
 function dataHeaderIntlMapAF(locNum) {
     if(!systemSettings.international.map.africa[locNum].locationID) return;
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.africa[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.africa[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.international.map.africa[locNum].lat = data.location.latitude
         systemSettings.international.map.africa[locNum].lon = data.location.longitude
     })
 }
 function dataHeaderIntlMapEU(locNum) {
     if(!systemSettings.international.map.europe[locNum].locationID) return;
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.europe[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.europe[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.international.map.europe[locNum].lat = data.location.latitude
         systemSettings.international.map.europe[locNum].lon = data.location.longitude
     })
 }
 function dataHeaderIntlMapGB(locNum) {
     if(!systemSettings.international.map.britain[locNum].locationID) return;
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.britain[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.britain[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.international.map.britain[locNum].lat = data.location.latitude
         systemSettings.international.map.britain[locNum].lon = data.location.longitude
     })
 }
 function dataHeaderIntlMapSA(locNum) {
     if(!systemSettings.international.map.southamerica[locNum].locationID) return;
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.southamerica[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.southamerica[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.international.map.southamerica[locNum].lat = data.location.latitude
         systemSettings.international.map.southamerica[locNum].lon = data.location.longitude
     })
 }
 function dataHeaderIntlMapCB(locNum) {
     if(!systemSettings.international.map.caribbean[locNum].locationID) return;
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.caribbean[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.caribbean[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.international.map.caribbean[locNum].lat = data.location.latitude
         systemSettings.international.map.caribbean[locNum].lon = data.location.longitude
     })
 }
 function dataHeaderIntlMapMX(locNum) {
     if(!systemSettings.international.map.mexico[locNum].locationID) return;
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.mexico[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.mexico[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.international.map.mexico[locNum].lat = data.location.latitude
         systemSettings.international.map.mexico[locNum].lon = data.location.longitude
     })
 }
 function dataHeaderIntlMapCA(locNum) {
     if(!systemSettings.international.map.canada[locNum].locationID) return;
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.canada[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.international.map.canada[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.international.map.canada[locNum].lat = data.location.latitude
         systemSettings.international.map.canada[locNum].lon = data.location.longitude
     })
 }
 function dataHeaderHealth() {
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.health.locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.health.locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.health.lat = data.location.latitude
         systemSettings.health.lon = data.location.longitude
         locationDataHeaders.mainData.outdoorActivity = "geocode=" + systemSettings.health.lat + "," + systemSettings.health.lon
@@ -1133,19 +1133,19 @@ function dataHeaderHealth() {
     })
 }
 function dataHeaderDestinationFcst(locNum) {
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.travel.destinationForecast[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.travel.destinationForecast[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.travel.destinationForecast[locNum].lat = data.location.latitude
         systemSettings.travel.destinationForecast[locNum].lon = data.location.longitude
     })
 }
 function dataHeaderTravelMap(locNum) {
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.travel.regionalMap.cities[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.travel.regionalMap.cities[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.travel.regionalMap.cities[locNum].lat = data.location.latitude
         systemSettings.travel.regionalMap.cities[locNum].lon = data.location.longitude
     })
 }
 function dataHeaderExtraCity(locNum) {
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.extraCity.cities[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.extraCity.cities[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.extraCity.cities[locNum].lat = data.location.latitude
         systemSettings.extraCity.cities[locNum].lon = data.location.longitude
         locationDataHeaders.mainData.alerts.extraLoc[locNum] = "geocode=" + systemSettings.extraCity.cities[locNum].lat + "," + systemSettings.extraCity.cities[locNum].lon
@@ -1156,7 +1156,7 @@ function dataHeaderExtraCity(locNum) {
     })
 }
 function dataHeaderMainCity() {
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.mainCity.locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.mainCity.locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.mainCity.lat = data.location.latitude
         systemSettings.mainCity.lon = data.location.longitude
         //cc
@@ -1178,7 +1178,7 @@ function dataHeaderMainCity() {
     })
 }
 function dataHeaderNearbyCities(locNum) {
-    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.nearbyCities.cities[locNum].locationID + "&language=en-US&format=json&apiKey=" + api_key, function(data) {
+    $.getJSON("https://api.weather.com/v3/location/point?locid=" + systemSettings.nearbyCities.cities[locNum].locationID + "&language=en-CA&format=json&apiKey=" + api_key, function(data) {
         systemSettings.nearbyCities.cities[locNum].lat = data.location.latitude
         systemSettings.nearbyCities.cities[locNum].lon = data.location.longitude
         locationDataHeaders.mainData.nearbyCities[locNum] = "geocode=" + systemSettings.nearbyCities.cities[locNum].lat + "," + systemSettings.nearbyCities.cities[locNum].lon

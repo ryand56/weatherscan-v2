@@ -1,4 +1,6 @@
-var mapStyle = "mapbox://styles/colster/cmiccqynn00as01s4bt6501il";
+//var mapStyle = "mapbox://styles/colster/cmiccqynn00as01s4bt6501il";
+var mapStyle = "mapbox://styles/freakydreakylol/cmehnnqfo004801s4gnv3fpiv";
+
 var satZoom = 5;
 //local radar variables
 var locradar, satmap, satAmenities, locradarAmenities, locradarAmenitiesTrans, radarEchoes, satEchoes, miniradar, miniradarAmenitiesTrans, miniEchoes;
@@ -25,23 +27,23 @@ function initializeRadars() {
     miniradar.setLayoutProperty('alaska', 'visibility', 'visible');//alaska
     miniradar.setLayoutProperty('conus merc', 'visibility', 'visible');//conus mercator
     miniradar.setLayoutProperty('conus sat', 'visibility', 'none');//conus lambert
-    miniradar.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'visible');//county lines
+    //miniradar.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'visible');//county lines
     miniradar.setLayoutProperty('cb-2019-us-state-20m-nocoast-7m1rrd', 'visibility', 'visible');//state lines
     miniradar.setLayoutProperty('i2-coastlines-conus-ak-hi-06wtga', 'visibility', 'visible');//coastlines
-    miniradar.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'visible');//black roads
-    miniradar.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', 'visibility', 'visible');//gray roads
-    miniradar.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (2)', 'visibility', 'none');
+    //miniradar.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'visible');//black roads
+    //miniradar.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', 'visibility', 'visible');//gray roads
+    //miniradar.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (2)', 'visibility', 'none');
     miniradar.setLayoutProperty('place-label', 'visibility', 'none');
     miniradar.setLayoutProperty('place-label copy', 'visibility', 'none');
     miniradar.setLayoutProperty('airport-label', 'visibility', 'none');
-    miniradar.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (4)', 'visibility', 'none');
+    //miniradar.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (4)', 'visibility', 'none');
     miniradar.setLayoutProperty('country-boundaries', 'visibility', 'visible');
 
     miniradar.setPaintProperty('i2-coastlines-conus-ak-hi-06wtga', "line-width", 2)
-    miniradar.setPaintProperty('i2-county-lines-conus-ak-hi-81h5x4', "line-width", 2)
+    //miniradar.setPaintProperty('i2-county-lines-conus-ak-hi-81h5x4', "line-width", 2)
     miniradar.setPaintProperty('cb-2019-us-state-20m-nocoast-7m1rrd', "line-width", 4)
-    miniradar.setPaintProperty('i2-road-vectors-conus-ak-hi-4r25d3', "line-width", 12)
-    miniradar.setPaintProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', "line-width", 4)
+    //miniradar.setPaintProperty('i2-road-vectors-conus-ak-hi-4r25d3', "line-width", 12)
+    //miniradar.setPaintProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', "line-width", 4)
   });
 
   miniradarAmenitiesTrans = new mapboxgl.Map({
@@ -58,7 +60,7 @@ function initializeRadars() {
     miniradarAmenitiesTrans.setLayoutProperty('alaska', 'visibility', 'none');//alaska
     miniradarAmenitiesTrans.setLayoutProperty('conus merc', 'visibility', 'none');//conus mercator
     miniradarAmenitiesTrans.setLayoutProperty('conus sat', 'visibility', 'none');//conus lambert
-    miniradarAmenitiesTrans.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'visible');//county lines
+    //miniradarAmenitiesTrans.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'visible');//county lines
     miniradarAmenitiesTrans.setLayoutProperty('cb-2019-us-state-20m-nocoast-7m1rrd', 'visibility', 'visible');//state lines
     miniradarAmenitiesTrans.setLayoutProperty('i2-coastlines-conus-ak-hi-06wtga', 'visibility', 'visible');//coastlines
     miniradarAmenitiesTrans.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'none');//black roads
@@ -71,7 +73,7 @@ function initializeRadars() {
     miniradarAmenitiesTrans.setLayoutProperty('country-boundaries', 'visibility', 'visible');
 
     miniradarAmenitiesTrans.setPaintProperty('i2-coastlines-conus-ak-hi-06wtga', "line-width", 2)
-    miniradarAmenitiesTrans.setPaintProperty('i2-county-lines-conus-ak-hi-81h5x4', "line-width", 2)
+    //miniradarAmenitiesTrans.setPaintProperty('i2-county-lines-conus-ak-hi-81h5x4', "line-width", 2)
     miniradarAmenitiesTrans.setPaintProperty('cb-2019-us-state-20m-nocoast-7m1rrd', "line-width", 4)
     miniradarAmenitiesTrans.setPaintProperty('i2-road-vectors-conus-ak-hi-4r25d3', "line-width", 12)
     miniradarAmenitiesTrans.setPaintProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', "line-width", 4)
@@ -91,7 +93,7 @@ function initializeRadars() {
     miniEchoes.setLayoutProperty('alaska', 'visibility', 'none');//alaska
     miniEchoes.setLayoutProperty('conus merc', 'visibility', 'none');//conus mercator
     miniEchoes.setLayoutProperty('conus sat', 'visibility', 'none');//conus lambert
-    miniEchoes.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'none');//county lines
+    //miniEchoes.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'none');//county lines
     miniEchoes.setLayoutProperty('cb-2019-us-state-20m-nocoast-7m1rrd', 'visibility', 'none');//state lines
     miniEchoes.setLayoutProperty('i2-coastlines-conus-ak-hi-06wtga', 'visibility', 'none');//coastlines
     miniEchoes.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'none');//black roads
@@ -127,16 +129,16 @@ function initializeRadars() {
     locradar.setLayoutProperty('alaska', 'visibility', 'visible');//alaska
     locradar.setLayoutProperty('conus merc', 'visibility', 'visible');//conus mercator
     locradar.setLayoutProperty('conus sat', 'visibility', 'none');//conus lambert
-    locradar.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'none');//county lines
+    //locradar.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'none');//county lines
     locradar.setLayoutProperty('cb-2019-us-state-20m-nocoast-7m1rrd', 'visibility', 'none');//state lines
     locradar.setLayoutProperty('i2-coastlines-conus-ak-hi-06wtga', 'visibility', 'none');//coastlines
-    locradar.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'none');//black roads
-    locradar.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', 'visibility', 'none');//gray roads
-    locradar.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (2)', 'visibility', 'none');
+    //locradar.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'none');//black roads
+    //locradar.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', 'visibility', 'none');//gray roads
+    //locradar.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (2)', 'visibility', 'none');
     locradar.setLayoutProperty('place-label', 'visibility', 'none');
     locradar.setLayoutProperty('place-label copy', 'visibility', 'none');
     locradar.setLayoutProperty('airport-label', 'visibility', 'none');
-    locradar.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (4)', 'visibility', 'none');
+    //locradar.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (4)', 'visibility', 'none');
     locradar.setLayoutProperty('country-boundaries', 'visibility', 'none');
   });
 
@@ -159,16 +161,16 @@ function initializeRadars() {
     satmap.setLayoutProperty('alaska', 'visibility', 'visible');//alaska
     satmap.setLayoutProperty('conus merc', 'visibility', 'none');//conus mercator
     satmap.setLayoutProperty('conus sat', 'visibility', 'visible');//conus lambert
-    satmap.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'none');//county lines
+    //satmap.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'none');//county lines
     satmap.setLayoutProperty('cb-2019-us-state-20m-nocoast-7m1rrd', 'visibility', 'none');//state lines
     satmap.setLayoutProperty('i2-coastlines-conus-ak-hi-06wtga', 'visibility', 'none');//coastlines
-    satmap.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'none');//black roads
-    satmap.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', 'visibility', 'none');//gray roads
-    satmap.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (2)', 'visibility', 'none');
+    //satmap.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'none');//black roads
+    //satmap.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', 'visibility', 'none');//gray roads
+    //satmap.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (2)', 'visibility', 'none');
     satmap.setLayoutProperty('place-label', 'visibility', 'none');
     satmap.setLayoutProperty('place-label copy', 'visibility', 'none');
     satmap.setLayoutProperty('airport-label', 'visibility', 'none');
-    satmap.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (4)', 'visibility', 'none');
+    //satmap.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (4)', 'visibility', 'none');
     satmap.setLayoutProperty('country-boundaries', 'visibility', 'none');
   });
 
@@ -186,16 +188,16 @@ function initializeRadars() {
     radarEchoes.setLayoutProperty('alaska', 'visibility', 'none');//alaska
     radarEchoes.setLayoutProperty('conus merc', 'visibility', 'none');//conus mercator
     radarEchoes.setLayoutProperty('conus sat', 'visibility', 'none');//conus lambert
-    radarEchoes.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'none');//county lines
+    //radarEchoes.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'none');//county lines
     radarEchoes.setLayoutProperty('cb-2019-us-state-20m-nocoast-7m1rrd', 'visibility', 'none');//state lines
     radarEchoes.setLayoutProperty('i2-coastlines-conus-ak-hi-06wtga', 'visibility', 'none');//coastlines
-    radarEchoes.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'none');//black roads
-    radarEchoes.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', 'visibility', 'none');//gray roads
-    radarEchoes.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (2)', 'visibility', 'none');
+    //radarEchoes.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'none');//black roads
+    //radarEchoes.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', 'visibility', 'none');//gray roads
+    //radarEchoes.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (2)', 'visibility', 'none');
     radarEchoes.setLayoutProperty('place-label', 'visibility', 'none');
     radarEchoes.setLayoutProperty('place-label copy', 'visibility', 'none');
     radarEchoes.setLayoutProperty('airport-label', 'visibility', 'none');
-    radarEchoes.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (4)', 'visibility', 'none');
+    //radarEchoes.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (4)', 'visibility', 'none');
     radarEchoes.setLayoutProperty('country-boundaries', 'visibility', 'none');
   });
   radarEchoes.on('error', (e) =>{
@@ -221,16 +223,16 @@ function initializeRadars() {
     satEchoes.setLayoutProperty('alaska', 'visibility', 'none');//alaska
     satEchoes.setLayoutProperty('conus merc', 'visibility', 'none');//conus mercator
     satEchoes.setLayoutProperty('conus sat', 'visibility', 'none');//conus lambert
-    satEchoes.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'none');//county lines
+    //satEchoes.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'none');//county lines
     satEchoes.setLayoutProperty('cb-2019-us-state-20m-nocoast-7m1rrd', 'visibility', 'none');//state lines
     satEchoes.setLayoutProperty('i2-coastlines-conus-ak-hi-06wtga', 'visibility', 'none');//coastlines
-    satEchoes.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'none');//black roads
-    satEchoes.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', 'visibility', 'none');//gray roads
-    satEchoes.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (2)', 'visibility', 'none');
+    //satEchoes.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'none');//black roads
+    //satEchoes.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', 'visibility', 'none');//gray roads
+    //satEchoes.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (2)', 'visibility', 'none');
     satEchoes.setLayoutProperty('place-label', 'visibility', 'none');
     satEchoes.setLayoutProperty('place-label copy', 'visibility', 'none');
     satEchoes.setLayoutProperty('airport-label', 'visibility', 'none');
-    satEchoes.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (4)', 'visibility', 'none');
+    //satEchoes.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (4)', 'visibility', 'none');
     satEchoes.setLayoutProperty('country-boundaries', 'visibility', 'none');
   });
   satEchoes.on('error', (e) =>{
@@ -257,18 +259,18 @@ function initializeRadars() {
     satAmenities.setLayoutProperty('alaska', 'visibility', 'none');//alaska
     satAmenities.setLayoutProperty('conus merc', 'visibility', 'none');//conus mercator
     satAmenities.setLayoutProperty('conus sat', 'visibility', 'none');//conus lambert
-    satAmenities.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'none');//county lines
+    //satAmenities.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'none');//county lines
     satAmenities.setLayoutProperty('cb-2019-us-state-20m-nocoast-7m1rrd', 'visibility', 'visible');//state lines
     satAmenities.setPaintProperty('cb-2019-us-state-20m-nocoast-7m1rrd', "line-width", 4)
     satAmenities.setLayoutProperty('i2-coastlines-conus-ak-hi-06wtga', 'visibility', 'visible');//coastlines
     satAmenities.setPaintProperty('i2-coastlines-conus-ak-hi-06wtga', "line-width", 4)
-    satAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'none');//black roads
-    satAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', 'visibility', 'none');//gray roads
-    satAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (2)', 'visibility', 'none');
+    //satAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'none');//black roads
+    //satAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', 'visibility', 'none');//gray roads
+    //satAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (2)', 'visibility', 'none');
     satAmenities.setLayoutProperty('place-label', 'visibility', 'none');
     satAmenities.setLayoutProperty('place-label copy', 'visibility', 'none');
     satAmenities.setLayoutProperty('airport-label', 'visibility', 'none');
-    satAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (4)', 'visibility', 'none');
+    //satAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (4)', 'visibility', 'none');
     satAmenities.setLayoutProperty('country-boundaries', 'visibility', 'visible');
     satAmenities.setPaintProperty('country-boundaries', "line-width", 4)
   });
@@ -286,23 +288,23 @@ function initializeRadars() {
     locradarAmenities.setLayoutProperty('alaska', 'visibility', 'none');//alaska
     locradarAmenities.setLayoutProperty('conus merc', 'visibility', 'none');//conus mercator
     locradarAmenities.setLayoutProperty('conus sat', 'visibility', 'none');//conus lambert
-    locradarAmenities.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'visible');//county lines
+    //locradarAmenities.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'visible');//county lines
     locradarAmenities.setLayoutProperty('cb-2019-us-state-20m-nocoast-7m1rrd', 'visibility', 'visible');//state lines
     locradarAmenities.setLayoutProperty('i2-coastlines-conus-ak-hi-06wtga', 'visibility', 'visible');//coastlines
-    locradarAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'visible');//black roads
-    locradarAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', 'visibility', 'visible');//gray roads
-    locradarAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (2)', 'visibility', 'none');
+    //locradarAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'visible');//black roads
+    //locradarAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', 'visibility', 'visible');//gray roads
+    //locradarAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (2)', 'visibility', 'none');
     locradarAmenities.setLayoutProperty('place-label', 'visibility', 'none');
     locradarAmenities.setLayoutProperty('place-label copy', 'visibility', 'none');
     locradarAmenities.setLayoutProperty('airport-label', 'visibility', 'none');
-    locradarAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (4)', 'visibility', 'none');
+    //locradarAmenities.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (4)', 'visibility', 'none');
     locradarAmenities.setLayoutProperty('country-boundaries', 'visibility', 'visible');
 
     locradarAmenities.setPaintProperty('i2-coastlines-conus-ak-hi-06wtga', "line-width", 3)
-    locradarAmenities.setPaintProperty('i2-county-lines-conus-ak-hi-81h5x4', "line-width", 3)
+    //locradarAmenities.setPaintProperty('i2-county-lines-conus-ak-hi-81h5x4', "line-width", 3)
     locradarAmenities.setPaintProperty('cb-2019-us-state-20m-nocoast-7m1rrd', "line-width", 7)
-    locradarAmenities.setPaintProperty('i2-road-vectors-conus-ak-hi-4r25d3', "line-width", 16)
-    locradarAmenities.setPaintProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', "line-width", 6)
+    //locradarAmenities.setPaintProperty('i2-road-vectors-conus-ak-hi-4r25d3', "line-width", 16)
+    //locradarAmenities.setPaintProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', "line-width", 6)
   });
 
   locradarAmenitiesTrans = new mapboxgl.Map({
@@ -319,22 +321,22 @@ function initializeRadars() {
     locradarAmenitiesTrans.setLayoutProperty('alaska', 'visibility', 'none');//alaska
     locradarAmenitiesTrans.setLayoutProperty('conus merc', 'visibility', 'none');//conus mercator
     locradarAmenitiesTrans.setLayoutProperty('conus sat', 'visibility', 'none');//conus lambert
-    locradarAmenitiesTrans.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'visible');//county lines
+    //locradarAmenitiesTrans.setLayoutProperty('i2-county-lines-conus-ak-hi-81h5x4', 'visibility', 'visible');//county lines
     locradarAmenitiesTrans.setLayoutProperty('cb-2019-us-state-20m-nocoast-7m1rrd', 'visibility', 'visible');//state lines
     locradarAmenitiesTrans.setLayoutProperty('i2-coastlines-conus-ak-hi-06wtga', 'visibility', 'visible');//coastlines
-    locradarAmenitiesTrans.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'none');//black roads
-    locradarAmenitiesTrans.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', 'visibility', 'visible');//gray roads
-    locradarAmenitiesTrans.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (2)', 'visibility', 'none');
+    //locradarAmenitiesTrans.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3', 'visibility', 'none');//black roads
+    //locradarAmenitiesTrans.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', 'visibility', 'visible');//gray roads
+    //locradarAmenitiesTrans.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (2)', 'visibility', 'none');
     locradarAmenitiesTrans.setLayoutProperty('place-label', 'visibility', 'none');
     locradarAmenitiesTrans.setLayoutProperty('place-label copy', 'visibility', 'none');
     locradarAmenitiesTrans.setLayoutProperty('airport-label', 'visibility', 'none');
-    locradarAmenitiesTrans.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (4)', 'visibility', 'none');
+    //locradarAmenitiesTrans.setLayoutProperty('i2-road-vectors-conus-ak-hi-4r25d3 (4)', 'visibility', 'none');
     locradarAmenitiesTrans.setLayoutProperty('country-boundaries', 'visibility', 'visible');
 
     locradarAmenitiesTrans.setPaintProperty('i2-coastlines-conus-ak-hi-06wtga', "line-width", 3)
-    locradarAmenitiesTrans.setPaintProperty('i2-county-lines-conus-ak-hi-81h5x4', "line-width", 3)
+    //locradarAmenitiesTrans.setPaintProperty('i2-county-lines-conus-ak-hi-81h5x4', "line-width", 3)
     locradarAmenitiesTrans.setPaintProperty('cb-2019-us-state-20m-nocoast-7m1rrd', "line-width", 7)
-    locradarAmenitiesTrans.setPaintProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', "line-width", 6)
+    //locradarAmenitiesTrans.setPaintProperty('i2-road-vectors-conus-ak-hi-4r25d3 copy', "line-width", 6)
   });
   try {
     trafficMap = new mapboxgl.Map({

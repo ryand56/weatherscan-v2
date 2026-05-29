@@ -40,7 +40,7 @@ var currentCCInterval
 function getlBarData(lbarLoc) {
   lBarData.cities[lbarLoc] = emptyLBarData();
   function ccLBAR() {
-    var url = "https://api.weather.com/v3/wx/observations/current?" + locationDataHeaders.LBarData.current[lbarLoc] + "&units=e&language=en-US&format=json&apiKey=" + api_key
+    var url = "https://api.weather.com/v3/wx/observations/current?" + locationDataHeaders.LBarData.current[lbarLoc] + "&units=m&language=en-CA&format=json&apiKey=" + api_key
     $.getJSON(url, function(data) {
       lBarData.cities[lbarLoc].currentConditions.noReport = false
       lBarData.cities[lbarLoc].currentConditions.icon = data.iconCodeExtend
@@ -54,7 +54,7 @@ function getlBarData(lbarLoc) {
       lBarData.cities[lbarLoc].currentConditions.visibility = (data.visibility > 2 ? data.visibility : data.visibility.toFixed(1)) + " mi"
       lBarData.cities[lbarLoc].currentConditions.ceiling = data.cloudCeiling == null ? "null" : data.cloudCeiling + " ft"
       lBarData.cities[lbarLoc].currentConditions.uvIndex = data.uvIndex = data.uvDescription
-      lBarData.cities[lbarLoc].currentConditions.gusts = data.windGust == undefined ? "none" : data.windGust + " mph"
+      lBarData.cities[lbarLoc].currentConditions.gusts = data.windGust == undefined ? "none" : data.windGust + " km/h"
       lBarData.cities[lbarLoc].currentConditions.feelslike = data.temperatureFeelsLike == data.temperature ? "none" : (data.temperature > 65 ? "heat index " + data.temperatureFeelsLike + "°" : "wind chill " + data.temperatureFeelsLike + "°")
     }).fail(function() {
       lBarData.cities[lbarLoc].currentConditions.noReport = true
@@ -63,7 +63,7 @@ function getlBarData(lbarLoc) {
   }
   ccLBAR()
   function fcstLBAR() {
-    var url = "https://api.weather.com/v3/wx/forecast/daily/5day?" + locationDataHeaders.LBarData.forecast[lbarLoc] + "&format=json&units=e&language=en-US&apiKey=" + api_key
+    var url = "https://api.weather.com/v3/wx/forecast/daily/5day?" + locationDataHeaders.LBarData.forecast[lbarLoc] + "&format=json&units=m&language=en-CA&apiKey=" + api_key
     $.getJSON(url, function(data) {
       var today = longWeekDays[new Date().getDay()] 
       lBarData.cities[lbarLoc].forecast.noReport = false;
@@ -97,7 +97,7 @@ function getlBarData(lbarLoc) {
   }
   fcstLBAR()
   function dpartLBAR(){
-    var url = "https://api.weather.com/v3/wx/forecast/hourly/2day?" + locationDataHeaders.LBarData.forecast[lbarLoc] + "&format=json&units=e&language=en-US&apiKey=" + api_key
+    var url = "https://api.weather.com/v3/wx/forecast/hourly/2day?" + locationDataHeaders.LBarData.forecast[lbarLoc] + "&format=json&units=m&language=en-CA&apiKey=" + api_key
     var dpHours = [];
     var dayOfWeek = {
         0: ["SUNDAY'S FORECAST", "SUN NIGHT/MON", "MONDAY'S FORECAST"], 1: ["MONDAY'S FORECAST", "MON NIGHT/TUE", "TUESDAY'S FORECAST"], 2: ["TUESDAY'S FORECAST", "TUE NIGHT/WED", "WEDNESDAY'S FORECAST"], 3: ["WEDNESDAY'S FORECAST", "WED NIGHT/THU", "THURSDAY'S FORECAST"],
@@ -208,7 +208,7 @@ function getTickerData(){
   //airports
   function ccTickerArpt(num) {
     var airportCC = {airportName:"",cond:"",temp:"",delay:""};
-    var url = "https://api.weather.com/v3/wx/observations/current?iataCode=" + systemSettings.LBar.ccTicker.airports[num].iataCode + "&units=e&language=en-US&format=json&apiKey=" + api_key
+    var url = "https://api.weather.com/v3/wx/observations/current?iataCode=" + systemSettings.LBar.ccTicker.airports[num].iataCode + "&units=m&language=en-CA&format=json&apiKey=" + api_key
     $.getJSON(url, function(data){
       //console.log(data);
       //localTickerData.airport.noReport = false;
@@ -250,7 +250,7 @@ function getTickerData(){
   //cc
   for(let j = 0; j < tunnel.length; j++){
     var locationTickerCC = {locationName:"",cond:"",temp:""};
-    var url = "https://api.weather.com/v3/wx/observations/current?" + htunnel.current[j] + "&units=e&language=en-US&format=json&apiKey=" + api_key
+    var url = "https://api.weather.com/v3/wx/observations/current?" + htunnel.current[j] + "&units=m&language=en-CA&format=json&apiKey=" + api_key
     $.getJSON(url, function(data){
       //console.log(data);
       if(type == "cities"){
@@ -287,7 +287,7 @@ function getTickerData(){
   //fc
   var dayTime = new Date()
   for(let k = 0; k < tunnel.length; k++){
-    var url = "https://api.weather.com/v3/wx/forecast/daily/3day?" + htunnel.forecast[k] + "&format=json&units=e&language=en-US&apiKey=" + api_key
+    var url = "https://api.weather.com/v3/wx/forecast/daily/3day?" + htunnel.forecast[k] + "&format=json&units=m&language=en-CA&apiKey=" + api_key
     $.getJSON(url, function(data){
       //console.log(tunnel[k].locationName, data);
       if(type == "cities"){
