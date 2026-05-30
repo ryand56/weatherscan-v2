@@ -27,9 +27,9 @@
         "audioSettings":{
             "enableMusic":true,
             "shuffle":true,
-            "randomStart":false,
+            "randomStart":true,
             "narrations":true,
-            "order":[45, 48, 49, 50, 51, 52, 57],
+            "order": [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 20, 21, 22, 25, 26, 27, 29, 30, 31, 32, 33, 34, 40, 41, 43, 48, 49, 50, 51, 52, 58, 59, 60],
             "cantoreNarrations":false
         },
         "packageSettings":["forecast","health","extralocal","travel", "airport","extralocal","minicoreone","garden","golf","international"],
@@ -111,7 +111,7 @@
               "lon":"-113.4937",
               "auto":false,
               "zoom":10.5,
-              "satCoords":["auto"],
+              "satCoords":[-113.4937, 53.5461],
               "radarCities": [
                 {
                   "locationName": "Edmonton",
@@ -136,13 +136,13 @@
                 "obsName": "Morinville",
                 "locationID": "CAXX0309:1:CA",
                 "upNextBG": "forest_bg",
-                "slidesBG": "core_bg",
+                "slidesBG": "forest_bg",
                 "radar": {
                   "lat": "53.80014",
                   "lon": "-113.65203",
                   "auto": false,
                   "zoom": 10,
-                  "satCoords": ["auto"],
+                  "satCoords": [-113.65203, 53.80014],
                   "radarCities": [
                     {
                       "locationName": "Morinville",
@@ -152,6 +152,44 @@
                       "nameLeftMargin": "-100"
                     }
                   ],
+                  "radarIcons": []
+                }
+              },
+              {
+                "locationName": "Leduc",
+                "bulletinName": "Leduc Area",
+                "lat": "53.2647",
+                "lon": "-113.55312",
+                "obsName": "Leduc",
+                "locationID": "CAXX3395:1:CA",
+                "upNextBG": "neighborhood_bg",
+                "slidesBG": "neighborhood_bg",
+                "radar": {
+                  "lat": "53.2647",
+                  "lon": "-113.55312",
+                  "auto": false,
+                  "zoom": 10,
+                  "satCoords": [-113.55312, 53.2647],
+                  "radarCities": [],
+                  "radarIcons": []
+                }
+              },
+              {
+                "locationName": "Two Hills",
+                "bulletinName": "Two Hills Area",
+                "lat": "53.71016",
+                "lon": "-111.74637",
+                "obsName": "Two Hills",
+                "locationID": "CAXX2388:1:CA",
+                "upNextBG": "forest_bg",
+                "slidesBG": "forest_bg",
+                "radar": {
+                  "lat": "53.71016",
+                  "lon": "-111.74637",
+                  "auto": false,
+                  "zoom": 10,
+                  "satCoords": [-111.74637, 53.71016],
+                  "radarCities": [],
                   "radarIcons": []
                 }
               }
@@ -386,10 +424,10 @@
           ]
         },
         "garden": {
-          "autoFind":true,
-          "locationName": "",
-          "lat": "",
-          "lon": ""
+          "autoFind":false,
+          "locationName": "Edmonton",
+          "lat": "53.5461",
+          "lon": "-113.4937"
         },
         "ski": {
           "resorts": [

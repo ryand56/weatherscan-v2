@@ -70,15 +70,15 @@ class AudioManager {
         const v1MusicPath = 'music/v1/';
 
         systemSettings.audioSettings.order.forEach(order => {
-            if (order >= 34) {
+            /* if (order >= 34) {
                 this.playlist.push(
                     `${v1MusicPath}Track ${order - 33}.mp3`
                 );
-            } else {
+            } else { */
                 this.playlist.push(
                     `${musicPath}Track ${order}.mp3`
                 );
-            }
+            //}
         });
     }
 
