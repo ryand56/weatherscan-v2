@@ -17,7 +17,7 @@
             "providerImage":"mistdc",
             "adImages":[],
             "version":"1.0.1",
-            "backgroundImage":"wxscan_default_bg_new",
+            "backgroundImage":"wxscan_green_bg",
             "condensedCrawlFont": {
               "adCrawl": false,
               "ccTicker": false
@@ -76,11 +76,11 @@
             "lat": "53.5461",
             "lon": "-113.4937",
             "auto": false,
-            "zoom": 8,
+            "zoom": 5,
             "radarCities": [
               {
                 "locationName": "Edmonton",
-                "dotTopPos": "110",
+                "dotTopPos": "105",
                 "dotLeftPos": "240",
                 "nameTopMargin": "-35",
                 "nameLeftMargin": "-60"
@@ -103,14 +103,14 @@
             "obsName":"Edmonton",
             "locationID":"CAXX0126:1:CA",
             "almanacLocationName":"Edmonton",
-            "introBG":"neighborhood_bg",
-            "upNextBG":"neighborhood_bg",
-            "slidesBG":"core_bg",
+            "introBG":"city_bg",
+            "upNextBG":"city_bg",
+            "slidesBG":"core_city_bg",
             "radar": {
               "lat":"53.5461",
               "lon":"-113.4937",
               "auto":false,
-              "zoom":10.5,
+              "zoom":8,
               "satCoords":[-113.4937, 53.5461],
               "radarCities": [
                 {
@@ -126,8 +126,27 @@
         },
         "extraCity":{
             "autoFind":false,
-            "maxCities":3,
+            "maxCities":4,
             "cities":[
+              {
+                "locationName": "Calgary",
+                "bulletinName": "Calgary Area",
+                "lat": "51.04435",
+                "lon": "-114.07216",
+                "obsName": "Calgary",
+                "locationID": "CAXX0054:1:CA",
+                "upNextBG": "city_bg",
+                "slidesBG": "core_city_bg",
+                "radar": {
+                  "lat": "51.04435",
+                  "lon": "-114.07216",
+                  "auto": false,
+                  "zoom": 8,
+                  "satCoords": [-114.07216, 51.04435],
+                  "radarCities": [],
+                  "radarIcons": []
+                }
+              },
               {
                 "locationName": "Morinville",
                 "bulletinName": "Morinville Area",
@@ -135,8 +154,8 @@
                 "lon": "-113.65203",
                 "obsName": "Morinville",
                 "locationID": "CAXX0309:1:CA",
-                "upNextBG": "forest_bg",
-                "slidesBG": "forest_bg",
+                "upNextBG": "neighborhood_bg",
+                "slidesBG": "core_neighborhood_bg",
                 "radar": {
                   "lat": "53.80014",
                   "lon": "-113.65203",
@@ -163,7 +182,7 @@
                 "obsName": "Leduc",
                 "locationID": "CAXX3395:1:CA",
                 "upNextBG": "neighborhood_bg",
-                "slidesBG": "neighborhood_bg",
+                "slidesBG": "core_neighborhood_bg",
                 "radar": {
                   "lat": "53.2647",
                   "lon": "-113.55312",
@@ -182,7 +201,7 @@
                 "obsName": "Two Hills",
                 "locationID": "CAXX2388:1:CA",
                 "upNextBG": "forest_bg",
-                "slidesBG": "forest_bg",
+                "slidesBG": "core_forest_bg",
                 "radar": {
                   "lat": "53.71016",
                   "lon": "-111.74637",
@@ -417,7 +436,7 @@
           "indexMap": [],
           "courses": [
             {
-              "coursename": "Sturgeon Valley Golf & Country Club",
+              "courseName": "Sturgeon Valley Golf & Country Club",
               "lat": "53.6733298254504",
               "lon": "-113.5779319092842"
             }
