@@ -1,5 +1,6 @@
 //var mapStyle = "mapbox://styles/colster/cmiccqynn00as01s4bt6501il";
-var mapStyle = "mapbox://styles/freakydreakylol/cmehnnqfo004801s4gnv3fpiv";
+//var mapStyle = "mapbox://styles/freakydreakylol/cmehnnqfo004801s4gnv3fpiv";
+var mapStyle = "mapbox://styles/goldbblazez/ckgc8lzdz4lzh19qt7q9wbbr9";
 
 var satZoom = 5;
 //local radar variables

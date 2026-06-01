@@ -2649,6 +2649,7 @@ var warningSettings = {
 		"Small Stream Flood Advisory": {priority:68, severe:false, color: 'orange', included: false, marine:false},
 		"Arroyo and Small Stream Flood Advisory":	{priority:69, severe:false, color: 'orange', included: false, marine:false},
 		"Flood Advisory":	{priority:70, severe:false, color: 'orange', included: true, marine:false},
+    "Yellow Warning - Rainfall": {priority:70.5, severe:false, color: 'yellow', included: true, marine: false},
 		"Hydrologic Advisory": {priority:71, severe:false, color: 'orange', included: false, marine:false},
 		"Lakeshore Flood Advisory": {priority:72, severe:false, color: 'orange', included: true, marine:false},
 		"Coastal Flood Advisory": {priority:73, severe:false, color: 'orange', included: true, marine:false},

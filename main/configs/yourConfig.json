@@ -8,8 +8,8 @@
         "systemLocation":"Edmonton",
         "appearanceSettings":{
             "nationalConfig":false,
-            "iconSet":"2010",
-            "providerName":"Mist Digital Cable",
+            "iconSet":"2007",
+            "providerName":"Telus Communications",
             "startupTime":6000,
             "crawlMode":"both",
             "adMessage": ["Want your ad to show up somewhere other than \"some guy's 37 open browser tabs\"? Reach real Canadian audiences across TV and digital—sports, news, and those mysterious late-night reruns people swear they're only \"half-watching.\" Target smarter, not louder. From coast to coast to \"wait, is that still Alberta?\"", "Because Canadian weather doesn't believe in \"warning you gently.\" Get real-time alerts for storms, blizzards, and that suspiciously fast weather change that happens five minutes after you dressed for spring. Sign up and let your phone be the one overreacting for once.", "Now in HD—because if you're going to endure -30°C windchill, you should at least see it clearly. Crystal-clear forecasts, dramatic storm visuals, and snow that somehow looks even colder in high definition.", "Like talking to people? Like being outdoors? Like confidently explaining internet plans while the weather changes its mind three times in five minutes? Join a residential sales team with solid base pay plus commission, benefits, and earning potential that makes a trip to Canadian Tire feel financially justified ($600–$800+ weekly potential for many reps). If you're outgoing, resilient, and can survive conversations that start with \"so… how's your internet been treating you?\", this might be your thing."],
@@ -22,7 +22,7 @@
               { "adImage": "acuraLogo" }
             ],
             "version":"1.0.1",
-            "backgroundImage":"wxscan_green_bg",
+            "backgroundImage":"wxscan_default_bg_new",
             "condensedCrawlFont": {
               "adCrawl": false,
               "ccTicker": false
@@ -82,15 +82,8 @@
             "lon": "-113.4937",
             "auto": false,
             "zoom": 5,
-            "radarCities": [
-              {
-                "locationName": "Edmonton",
-                "dotTopPos": "105",
-                "dotLeftPos": "240",
-                "nameTopMargin": "-35",
-                "nameLeftMargin": "-60"
-              }
-            ]
+            "radarCities": [],
+            "radarIcons": []
           }
         },
         "dataMaps":{
@@ -117,15 +110,7 @@
               "auto":false,
               "zoom":8,
               "satCoords":[-113.4937, 53.5461],
-              "radarCities": [
-                {
-                  "locationName": "Edmonton",
-                  "dotTopPos": "525",
-                  "dotLeftPos": "800",
-                  "nameTopMargin": "-50",
-                  "nameLeftMargin": "-100"
-                }
-              ],
+              "radarCities": [],
               "radarIcons":[]
             }
         },
@@ -167,15 +152,7 @@
                   "auto": false,
                   "zoom": 10,
                   "satCoords": [-113.65203, 53.80014],
-                  "radarCities": [
-                    {
-                      "locationName": "Morinville",
-                      "dotTopPos": "525",
-                      "dotLeftPos": "800",
-                      "nameTopMargin": "-50",
-                      "nameLeftMargin": "-100"
-                    }
-                  ],
+                  "radarCities": [],
                   "radarIcons": []
                 }
               },
