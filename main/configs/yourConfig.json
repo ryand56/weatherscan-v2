@@ -37,7 +37,7 @@
             "order": [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 20, 21, 22, 25, 26, 27, 29, 30, 31, 32, 33, 34, 40, 41, 43, 48, 49, 50, 51, 52, 58, 59, 60],
             "cantoreNarrations":false
         },
-        "packageSettings":["forecast","health","extralocal","travel", "airport","extralocal","minicoreone","garden","golf","international"],
+        "packageSettings":["forecast","health","extralocal","travel","airport","extralocal","minicoreone","garden","golf","international"],
         "severePackageSettings":["severeA","severeB"],
         "LBar": {
           "gradientDirection":"right",
@@ -108,7 +108,7 @@
               "lat":"53.5461",
               "lon":"-113.4937",
               "auto":false,
-              "zoom":8,
+              "zoom":9.5,
               "satCoords":[-113.4937, 53.5461],
               "radarCities": [],
               "radarIcons":[]
@@ -118,25 +118,6 @@
             "autoFind":false,
             "maxCities":4,
             "cities":[
-              {
-                "locationName": "Calgary",
-                "bulletinName": "Calgary Area",
-                "lat": "51.04435",
-                "lon": "-114.07216",
-                "obsName": "Calgary",
-                "locationID": "CAXX0054:1:CA",
-                "upNextBG": "city_bg",
-                "slidesBG": "core_city_bg",
-                "radar": {
-                  "lat": "51.04435",
-                  "lon": "-114.07216",
-                  "auto": false,
-                  "zoom": 8,
-                  "satCoords": [-114.07216, 51.04435],
-                  "radarCities": [],
-                  "radarIcons": []
-                }
-              },
               {
                 "locationName": "Morinville",
                 "bulletinName": "Morinville Area",
@@ -150,8 +131,27 @@
                   "lat": "53.80014",
                   "lon": "-113.65203",
                   "auto": false,
-                  "zoom": 10,
+                  "zoom": 13,
                   "satCoords": [-113.65203, 53.80014],
+                  "radarCities": [],
+                  "radarIcons": []
+                }
+              },
+              {
+                "locationName": "Two Hills",
+                "bulletinName": "Two Hills Area",
+                "lat": "53.71016",
+                "lon": "-111.74637",
+                "obsName": "Two Hills",
+                "locationID": "CAXX2388:1:CA",
+                "upNextBG": "forest_bg",
+                "slidesBG": "core_forest_bg",
+                "radar": {
+                  "lat": "53.71016",
+                  "lon": "-111.74637",
+                  "auto": false,
+                  "zoom": 10,
+                  "satCoords": [-111.74637, 53.71016],
                   "radarCities": [],
                   "radarIcons": []
                 }
@@ -176,20 +176,20 @@
                 }
               },
               {
-                "locationName": "Two Hills",
-                "bulletinName": "Two Hills Area",
-                "lat": "53.71016",
-                "lon": "-111.74637",
-                "obsName": "Two Hills",
-                "locationID": "CAXX2388:1:CA",
-                "upNextBG": "forest_bg",
-                "slidesBG": "core_forest_bg",
+                "locationName": "Calgary",
+                "bulletinName": "Calgary Area",
+                "lat": "51.04435",
+                "lon": "-114.07216",
+                "obsName": "Calgary",
+                "locationID": "CAXX0054:1:CA",
+                "upNextBG": "city_bg",
+                "slidesBG": "core_city_bg",
                 "radar": {
-                  "lat": "53.71016",
-                  "lon": "-111.74637",
+                  "lat": "51.04435",
+                  "lon": "-114.07216",
                   "auto": false,
-                  "zoom": 10,
-                  "satCoords": [-111.74637, 53.71016],
+                  "zoom": 8,
+                  "satCoords": [-114.07216, 51.04435],
                   "radarCities": [],
                   "radarIcons": []
                 }
@@ -419,8 +419,13 @@
           "courses": [
             {
               "courseName": "Sturgeon Valley Golf & Country Club",
-              "lat": "53.6733298254504",
-              "lon": "-113.5779319092842"
+              "lat": "53.67332",
+              "lon": "-113.57793"
+            },
+            {
+              "courseName": "Devon Golf & Conference Centre",
+              "lat": "53.36770",
+              "lon": "-113.70846"
             }
           ]
         },
